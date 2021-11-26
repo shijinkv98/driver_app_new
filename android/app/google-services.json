@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "875266507505",
+    "project_id": "twoccartdriver",
+    "storage_bucket": "twoccartdriver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875266507505:android:00ca9c98718babac4bdf50",
+        "android_client_info": {
+          "package_name": "com.twocdriver.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875266507505-pejdgssfbcjmrm5ht6sqb37l34j9u3o8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.twocdriver.app",
+            "certificate_hash": "d532d0f9d80d050c1af5034d6f93c319e6d224f0"
+          }
+        },
+        {
+          "client_id": "875266507505-ussu6f0j67d0iudmlk98u8fgq9c6q14o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGSnmHkKibBU9EQosFEAaohROpkG8NrSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875266507505-ussu6f0j67d0iudmlk98u8fgq9c6q14o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

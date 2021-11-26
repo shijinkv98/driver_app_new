@@ -13,16 +13,18 @@ class UpdateStatusNew extends StatefulWidget {
   String orderid;
   String rupees;
   String ordertotal;
+  String mode;
 
 
   @override
-  _UpdateStatusNewState createState() => new _UpdateStatusNewState(item: this.accept,orderid: this.orderid,rupees: this.rupees,ordertotal:this.ordertotal);
-  UpdateStatusNew({this.accept,this.orderid,this.rupees,this.ordertotal})
+  _UpdateStatusNewState createState() => new _UpdateStatusNewState(item: this.accept,orderid: this.orderid,rupees: this.rupees,ordertotal:this.ordertotal,mode:this.mode);
+  UpdateStatusNew({this.accept,this.orderid,this.rupees,this.ordertotal,this.mode})
   {
     this.accept=accept;
     this.orderid=orderid;
     this.rupees=rupees;
     this.ordertotal=ordertotal;
+    this.mode=mode;
 
   }
 }
@@ -36,10 +38,11 @@ class _UpdateStatusNewState extends State<UpdateStatusNew> {
   String orderid;
   String rupees;
   String ordertotal;
+  String mode;
 
 
 
-  _UpdateStatusNewState({this.item,this.orderid,this.rupees,this.ordertotal});
+  _UpdateStatusNewState({this.item,this.orderid,this.rupees,this.ordertotal,this.mode});
 
   @override
   void initState() {
@@ -245,7 +248,7 @@ class _UpdateStatusNewState extends State<UpdateStatusNew> {
                     ),
                     InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DeliveryConfirmation(rupees:this.rupees,orderid:this.orderid,ordertotal:this.ordertotal)));
+                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DeliveryConfirmation(rupees:this.rupees,orderid:this.orderid,ordertotal:this.ordertotal,mode:this.mode)));
                       },
                       child: ListTile(
                         leading: Radio(

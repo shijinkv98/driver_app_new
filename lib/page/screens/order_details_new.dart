@@ -246,12 +246,13 @@ class _OrderDetailState extends State<OrderDetailsNew> {
     }
   }
 
-  Widget getMainBody(Acceptedorders itemorder){
+  Widget getMainBody(Acceptedorders itemorder,Accepted accepted){
     return Column(
       children: [
         _getContent(itemorder),
         _productsTitle(),
          getProductList(itemorder),
+        _productsRate(accepted),
         _totalProductsText(itemorder),
         _getPadding()
 
@@ -311,7 +312,7 @@ class _OrderDetailState extends State<OrderDetailsNew> {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
-          return getMainBody(itemorders[index]);
+          return getMainBody(itemorders[index],item);
         });
   }
 
@@ -339,16 +340,21 @@ class _OrderDetailState extends State<OrderDetailsNew> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    width: MediaQuery.of(context).size.width-120,
+                    width: MediaQuery.of(context).size.width/3,
                     child: Text(itemorder.accproducts[index].productnameacc,style: TextStyle(fontSize: 15,color: Colors.grey,fontWeight: FontWeight.bold),)),
                 Container(
-                    width: 50,
+                  margin: EdgeInsets.only(left: 20),
+                    width:  MediaQuery.of(context).size.width/3-40,
                     child: Text(
-                      '${itemorder.accproducts[index].quantityacc}${' Nos'}',style: TextStyle(fontSize: 15,color: Colors.grey,fontWeight: FontWeight.bold),))
+                      '${itemorder.accproducts[index].quantityacc}${' Nos'}',style: TextStyle(fontSize: 15,color: Colors.grey,fontWeight: FontWeight.bold),)),
+                Container(
+                    width:  MediaQuery.of(context).size.width/3-50,
+                    child: Text(
+                      '${'₹ '}${itemorder.accproducts[index].priceacc}',style: TextStyle(fontSize: 15,color: Colors.grey,fontWeight: FontWeight.bold),))
               ],
             ),
             Container(margin:EdgeInsets.only(top: 5),child: _getDivider())
@@ -370,8 +376,16 @@ class _OrderDetailState extends State<OrderDetailsNew> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Product',style: TextStyle(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),),
-                    Text('Qty.',style: TextStyle(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),)
+                    Container(
+                        width: MediaQuery.of(context).size.width/3,
+                        child: Text('Product',style: TextStyle(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),)),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                        width: MediaQuery.of(context).size.width/3-40,
+                        child: Text('Qty.',style: TextStyle(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),)),
+                    Container(
+                        width: MediaQuery.of(context).size.width/3-50,
+                        child: Text('Price',style: TextStyle(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),)),
                   ],
                 ),
                 Container(
@@ -383,6 +397,63 @@ class _OrderDetailState extends State<OrderDetailsNew> {
               ],
             ),
           ),
+    );
+  }
+  Widget _productsRate(Accepted accepted){
+    return Container(
+      margin: EdgeInsets.only(left: 20,right: 20),
+      color: colorGrayBg,
+      child:
+      Container(
+        margin: EdgeInsets.only(left: 15,right: 15,),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    width: MediaQuery.of(context).size.width/3,
+                    child: Text('Delivery Charge',style: TextStyle(fontSize: 15,color: Colors.black54,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),)),
+                Container(
+                  width: MediaQuery.of(context).size.width/3-40,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/3-50,
+                  child: Text(
+                    '${accepted.rupees}${accepted.shipping}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),),
+                )
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Divider(
+                height: 5,color: Colors.grey[500],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                      width: MediaQuery.of(context).size.width/3,
+                      child: Text('Total Price',style: TextStyle(fontSize: 15,color: Colors.black54,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),)),
+                  Container(
+                    width: MediaQuery.of(context).size.width/3-40,
+                  ),
+                  Container(
+
+                      width: MediaQuery.of(context).size.width/3-50,
+                      child: Text('${accepted.rupees}${accepted.ordertotal}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),))
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

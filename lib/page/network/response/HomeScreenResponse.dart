@@ -279,6 +279,7 @@ class Accepted {
   String customer_image;
   String rupees;
   String ordertotal;
+  String producttotal;
   String walletapplied;
   String itemcount;
   List<Deliaddressacc> deliaddressacc;

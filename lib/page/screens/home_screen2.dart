@@ -857,17 +857,11 @@ class _HomeScreenState extends State<HomeScreenNew> {
                                               builder: (BuildContext context) =>
                                                   UpdateStatusNew(
                                                       accept: accept,
-                                                      orderid:
-                                                          homeScreenResponse
-                                                              .accepted[index]
-                                                              .orderid,
-                                                      rupees: homeScreenResponse
-                                                          .accepted[index]
-                                                          .rupees,
-                                                      ordertotal:
-                                                          homeScreenResponse
-                                                              .accepted[index]
-                                                              .ordertotal)));
+                                                      orderid:homeScreenResponse.accepted[index].orderid,
+                                                      rupees: homeScreenResponse.accepted[index].rupees,
+                                                      ordertotal:homeScreenResponse.accepted[index].ordertotal,
+                                                      mode:homeScreenResponse.accepted[index].paymentmod,
+                                                  )));
                                 },
                                 child: new Text("Update Status"),
                               ),

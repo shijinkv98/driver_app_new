@@ -22,14 +22,16 @@ class DeliveryConfirmation extends StatefulWidget {
   String rupees;
   String orderid;
   String ordertotal;
+  String mode;
   @override
   _DeliveryConfirmationState createState() =>
-      new _DeliveryConfirmationState(item: this.accept, rupees: this.rupees,orderid:this.orderid,ordertotal:this.ordertotal);
-  DeliveryConfirmation({this.rupees, this.ordertotal, this.orderid}) {
+      new _DeliveryConfirmationState(item: this.accept, rupees: this.rupees,orderid:this.orderid,ordertotal:this.ordertotal,mode:this.mode);
+  DeliveryConfirmation({this.rupees, this.ordertotal, this.orderid,this.mode}) {
     this.accept = accept;
     this.rupees = rupees;
     this.orderid = orderid;
     this.ordertotal = ordertotal;
+    this.mode = mode;
   }
 }
 
@@ -39,9 +41,10 @@ class _DeliveryConfirmationState extends State<DeliveryConfirmation> {
   String rupees;
   String orderid;
   String ordertotal;
+  String mode;
 
   CheckBoxNotifier _checkBoxNotifier;
-  _DeliveryConfirmationState({this.item, this.rupees,this.orderid,this.ordertotal});
+  _DeliveryConfirmationState({this.item, this.rupees,this.orderid,this.ordertotal,this.mode});
 
   @override
   void initState() {
@@ -179,16 +182,34 @@ class _DeliveryConfirmationState extends State<DeliveryConfirmation> {
                         children: [
                           Container(
                             width: 15,
-                            child: Consumer<CheckBoxNotifier>(
+                            child:mode =="COD"?
+                            Consumer<CheckBoxNotifier>(
                                 builder: (context, value, child) {
-                              return Checkbox(
+                              return
+                                Checkbox(
                                 value: value.isChecked,
                                 activeColor: colorPrimary,
                                 onChanged: (bool value2) {
                                   value.isChecked = value2;
                                 },
                               );
-                            }),
+                            }
+                            ):
+                            Consumer<CheckBoxNotifier>(
+                                builder: (context, value, child) {
+                              return
+                                Checkbox(
+                                // value: value.isChecked,
+                                value:true,
+                                activeColor: colorPrimary,
+                                onChanged: (bool value2) {
+                                  value.isChecked = value2;
+                                  // false = value2;
+
+                                },
+                              );
+                            }
+                            ),
                           ),
                           Container(
                               margin: EdgeInsets.only(left: 10),
@@ -229,6 +250,7 @@ class _DeliveryConfirmationState extends State<DeliveryConfirmation> {
                                   ))),
                             ),
                           ),
+                          mode=="COD"?
                           InkWell(
                             onTap: (){
                               if(!_checkBoxNotifier.isChecked){
@@ -256,7 +278,31 @@ class _DeliveryConfirmationState extends State<DeliveryConfirmation> {
                                         fontSize: 15),
                                   ))),
                             ),
+                          ):
+                          InkWell(
+                            onTap: (){
+                                confirmed(context);
+                            },
+                            child: Container(
+                              height: 35,
+                              margin: EdgeInsets.only(bottom: 20),
+                              decoration: BoxDecoration(
+                                color: iconColor1,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Container(
+                                  margin: EdgeInsets.only(left: 25, right: 25),
+                                  child: Center(
+                                      child: Text(
+                                        "Confirmed",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ))),
+                            ),
                           )
+
                         ],
                       ),
                     )

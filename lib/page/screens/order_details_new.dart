@@ -422,7 +422,7 @@ class _OrderDetailState extends State<OrderDetailsNew> {
                 Container(
                   width: MediaQuery.of(context).size.width/3-50,
                   child: Text(
-                    '${accepted.rupees}${accepted.shipping}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),),
+                    '${accepted.rupees}${" "}${accepted.shipping}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),),
                 )
               ],
             ),
@@ -447,7 +447,7 @@ class _OrderDetailState extends State<OrderDetailsNew> {
                   Container(
 
                       width: MediaQuery.of(context).size.width/3-50,
-                      child: Text('${accepted.rupees}${accepted.ordertotal}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),))
+                      child: Text('${accepted.rupees}${" "}${accepted.ordertotal}',style: TextStyle(fontSize: 15,color: Colors.black54,fontWeight: FontWeight.bold),))
                 ],
               ),
             ),

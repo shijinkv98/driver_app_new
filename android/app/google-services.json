@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:875266507505:android:00ca9c98718babac4bdf50",
         "android_client_info": {
-          "package_name": "com.twocdriver.app"
+          "package_name": "com.twoccart.driver_app"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "875266507505-pejdgssfbcjmrm5ht6sqb37l34j9u3o8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.twocdriver.app",
+            "package_name": "com.twoccart.driver_app",
             "certificate_hash": "d532d0f9d80d050c1af5034d6f93c319e6d224f0"
           }
         },

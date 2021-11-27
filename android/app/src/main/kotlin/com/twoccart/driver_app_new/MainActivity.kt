@@ -1,4 +1,4 @@
-package com.twocdriver.app_new
+package com.twoccart.driver_app_new
 
 import io.flutter.embedding.android.FlutterActivity
 

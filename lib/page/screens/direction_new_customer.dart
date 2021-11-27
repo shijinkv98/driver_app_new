@@ -54,7 +54,6 @@ class _DirectionNewCustomerState extends State<DirectionNewCustomer> {
   Completer<GoogleMapController> _controller = Completer();
 
 
-  // Configure map position and zoom
   // static final CameraPosition _kGooglePlex = CameraPosition(
   //   target: LatLng(double.parse(position.latitude), double.parse(position.longitude)),
   //   zoom: 9.5,
@@ -62,14 +61,14 @@ class _DirectionNewCustomerState extends State<DirectionNewCustomer> {
   // LatLng currentPostion;
   // Position position;
   // Position _location = Position(latitude:double.parse(liveLat), longitude:);
-
+  //
   // void _displayCurrentLocation() async {
   //
-  //   final location = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  //   final location = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
   //
   //   setState(() {
   //     _location = location;
-  //
+  //ve
   //   });
   // }
 
@@ -277,10 +276,10 @@ class _DirectionNewCustomerState extends State<DirectionNewCustomer> {
                   // } else {
                   // throw 'Could not launch $url';
                   // }
-                  // _launchUrl(
-                  //   // 'http://maps.google.com/?saddr=My+Location&daddr=${task.order.first?.packageInfo?.origination?.address}');
-                  //   //   'https://maps.google.com/?saddr=My+Location&daddr=${latitude}${','}${longitude}');
-                  //     'https://www.google.com/maps/search/?api=1&query=${latitude}${','}${longitude}');
+                  _launchUrl(
+                    // 'http://maps.google.com/?saddr=My+Location&daddr=${task.order.first?.packageInfo?.origination?.address}');
+                    //   'https://maps.google.com/?saddr=My+Location&daddr=${latitude}${','}${longitude}');
+                      'https://www.google.com/maps/search/?api=1&query=${latitude}${','}${longitude}');
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,
